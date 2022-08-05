@@ -7,5 +7,5 @@ import io.fabric8.kubernetes.model.annotation.Version;
 
 @Group("dev.hoony9x.practice")
 @Version("v1")
-public class NginxSchema extends CustomResource<NginxSchemaSpec, NginxSchemaStatus> implements Namespaced {
+public class Nginx extends CustomResource<NginxSpec, NginxStatus> implements Namespaced {
 }

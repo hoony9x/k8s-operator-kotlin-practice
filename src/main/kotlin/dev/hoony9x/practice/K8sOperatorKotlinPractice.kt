@@ -16,6 +16,8 @@ class K8sOperatorKotlinPractice {
     companion object {
         private val log: Logger = LoggerFactory.getLogger(K8sOperatorKotlinPractice::class.java)
 
+        const val OPERATOR_LABEL = "nginx-practice-operator"
+
         @JvmStatic
         fun main(args: Array<String>) {
             log.info("Practice Operator (nginx) starting...")
@@ -26,10 +28,8 @@ class K8sOperatorKotlinPractice {
                 op.withMetrics(MicrometerMetrics(LoggingMeterRegistry()))
             }
 
-            val nginxSchemaReconciler = NginxSchemaReconciler()
-            operator.register(nginxSchemaReconciler) { configOverrider ->
-
-            }
+            val nginxReconciler = NginxReconciler()
+            operator.register(nginxReconciler)
 
             operator.installShutdownHook()
             operator.start()
