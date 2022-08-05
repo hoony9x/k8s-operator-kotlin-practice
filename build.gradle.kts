@@ -18,13 +18,16 @@ dependencies {
     implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.18.0")
     implementation("org.slf4j:slf4j-api:1.7.36")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.3")
+    implementation("io.fabric8:crd-generator-apt:6.0.0")
 
+    annotationProcessor("io.javaoperatorsdk:operator-framework:3.1.0")
     annotationProcessor("io.fabric8:crd-generator-apt:6.0.0")
 
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("org.junit.jupiter:junit-jupiter-engine")
     testImplementation("io.javaoperatorsdk:operator-framework-junit-5:3.1.0")
+    testImplementation("org.awaitility:awaitility:4.1.0")
 }
 
 tasks.test {

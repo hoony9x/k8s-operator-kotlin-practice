@@ -26,7 +26,10 @@ class K8sOperatorKotlinPractice {
                 op.withMetrics(MicrometerMetrics(LoggingMeterRegistry()))
             }
 
-            // TODO: Add Operator with Reconciler
+            val nginxSchemaReconciler = NginxSchemaReconciler()
+            operator.register(nginxSchemaReconciler) { configOverrider ->
+
+            }
 
             operator.installShutdownHook()
             operator.start()
