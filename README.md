@@ -10,5 +10,21 @@
   - `nginx` `Deployment` 의 `replicas` 조정
   - `nginx` 의 `Service` Expose
 
+## Progress Status
+- 아래 Custom Resource 배포 시 `Deployment` 와 `Service` 가 자동 생성되도록 하는 단계까지 완료.
+
+```yaml
+apiVersion: dev.hoony9x.practice/v1
+kind: Nginx
+metadata:
+  name: practice
+  namespace: operator-practice
+spec:
+  port: 8080
+  exposePort: 80
+  replicas: 3
+  version: latest
+```
+
 ## Reference
 - https://github.com/java-operator-sdk/java-operator-sdk
