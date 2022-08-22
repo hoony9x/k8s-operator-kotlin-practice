@@ -1,5 +1,6 @@
 package dev.hoony9x.practice
 
+import dev.hoony9x.practice.K8sOperatorKotlinPractice.Companion.NGINX_VERSION
 import dev.hoony9x.practice.K8sOperatorKotlinPractice.Companion.OPERATOR_LABEL
 import io.fabric8.kubernetes.api.model.ContainerPort
 import io.fabric8.kubernetes.api.model.apps.Deployment
@@ -38,7 +39,7 @@ class NginxDeploymentDependentResource :
             .endMetadata()
             .editSpec()
             .editFirstContainer()
-            .withImage(nginxImage(nginx))
+            .withImage("nginx:$NGINX_VERSION")
             .withName("nginx-container")
             .withPorts(ContainerPort(nginx.spec.port, null, null, "http", "TCP"))
             .endContainer()
@@ -46,9 +47,5 @@ class NginxDeploymentDependentResource :
             .endTemplate()
             .endSpec()
             .build()
-    }
-
-    companion object {
-        private fun nginxImage(schema: Nginx): String = "nginx:${schema.spec.version}"
     }
 }

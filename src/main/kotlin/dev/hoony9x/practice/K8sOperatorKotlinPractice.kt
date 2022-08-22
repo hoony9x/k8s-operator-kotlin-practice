@@ -17,6 +17,7 @@ class K8sOperatorKotlinPractice {
         private val log: Logger = LoggerFactory.getLogger(K8sOperatorKotlinPractice::class.java)
 
         const val OPERATOR_LABEL = "nginx-practice-operator"
+        const val NGINX_VERSION = "1.23"
 
         @JvmStatic
         fun main(args: Array<String>) {
